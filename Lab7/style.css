@@ -2,7 +2,7 @@ body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 .map-overlay {
 font-family: 'Montserrat', sans-serif;
-/*font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+font: 20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 position: absolute;
 width: 40%;
 top: 0;
