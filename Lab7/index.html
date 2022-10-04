@@ -45,8 +45,47 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiaWFtd2Z4IiwiYSI6ImNqNGFnMnIyMzEwZzgycXJ1ODdqbG14eGMifQ.3AqBqXZlcbsbEhxddAPB-g';
     const map = new mapboxgl.Map({
       container: 'map', // container id
-      style: 'mapbox://styles/iamwfx/cl8tluyqd001a14nzpd565em7' // replace this with your style URL
+      style: 'mapbox://styles/iamwfx/cl8tluyqd001a14nzpd565em7', // replace this with your style URL
+      center: [-73.935242, 40.730610], // The convention for coordinates is  typically [long, lat]
+      zoom: 12
     });
+
+    map.on('load',function(){
+      // Give your layer's source a nickname you'll remember easily.
+      map.addSource('sandyLayer',{
+        'type':'vector',
+        'url': 'mapbox://iamwfx.bpjzmy2b'
+      });
+
+      map.addSource('nychaLayer',{
+        'type':'vector',
+        'url': 'mapbox://iamwfx.28ut4nij'
+      });
+
+      // add a new layer with your polygons
+      map.addLayer({
+        'id':'flood_zones',
+        'type':'fill',
+        'source':'sandyLayer',
+        'source-layer':'Sandy_Inundation_Zone-4qcajo',
+        'paint':{
+          'fill-color':'#00158f',
+          'fill-opacity': 0.5
+        }
+      });
+
+      map.addLayer({
+        'id':'nychaBuildings',
+        'type':'fill',
+        'source':'nychaLayer',
+        'source-layer':'Map_of_NYCHA_Developments-7i6vok',
+        'paint':{
+          'fill-color':'red',
+          'fill-opacity': 0.5
+        }
+      })
+    });
+
     // Within a script, you comment using two backslashes.
     </script>
 </body>
