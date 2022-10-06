@@ -36,7 +36,7 @@
   	<div class="map-overlay top">
   	<div class="map-overlay-inner">
   	<h2>Public and Affordable Housing Flood Risk</h2>
-
+    <!-- INSERT TEXT HERE -->
   	</div>
 
   	</div>
@@ -47,7 +47,9 @@
       container: 'map', // container id
       style: 'mapbox://styles/iamwfx/cl8tluyqd001a14nzpd565em7', // replace this with your style URL
       center: [-73.935242, 40.730610], // The convention for coordinates is  typically [long, lat]
-      zoom: 12
+      zoom: 13,
+      // maxZoom: 22,
+      // minZoom: 12
     });
 
     map.on('load',function(){
